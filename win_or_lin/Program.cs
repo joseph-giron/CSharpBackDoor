@@ -12,32 +12,8 @@ using System.Security.Permissions;
 
 namespace win_or_lin
 {
-
     class Program
     {
-
-		public static void ReadTheClipboard()
-		{
-			string clipboardText = Clipboard.GetText(TextDataFormat.Text);
-            // Do whatever you need to do with clipboardText
-            Console.WriteLine("Pasted: {0}", clipboardText);
-            Console.Read();
-            // it is linux compatible!!!!!!
-		}
-        public static bool America()
-        {
-            string region = System.Globalization.RegionInfo.CurrentRegion.DisplayName;
-            if (region == "United States")
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-
-
-        }
         public static bool IsLinux
         {
             get
@@ -49,8 +25,6 @@ namespace win_or_lin
         [STAThread]
         static void Main(string[] args)
         {
-            if(America())
-            {
                 int PortNo = 31337;
                 TcpListener servListener;
                 servListener = new TcpListener(IPAddress.Any, PortNo);
@@ -98,10 +72,6 @@ namespace win_or_lin
                     }
                     rocksock.Close();
                 }
-
-            }
-            
-
         }
     }
 }
